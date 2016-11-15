@@ -1,0 +1,9 @@
+{
+    "tmsApp": {
+        "TrxType" : {
+            "null": "",
+            "CREDIT": "CREDIT",
+            "DEBIT": "DEBIT"
+        }
+    }
+}

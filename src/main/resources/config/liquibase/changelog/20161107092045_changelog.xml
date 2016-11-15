@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+   <changeSet author="ihab (generated)" id="1478510450433-1">
+      <addColumn tableName="customer">
+         <column name="branch_id" type="bigint"/>
+      </addColumn>
+   </changeSet>
+   <changeSet author="ihab (generated)" id="1478510450433-2">
+      <addForeignKeyConstraint baseColumnNames="branch_id"
+                               baseTableName="customer"
+                               constraintName="FK_ax6w2li9uim8tr3jweb9kteav"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="branch"/>
+   </changeSet>
+</databaseChangeLog>

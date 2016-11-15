@@ -1,0 +1,24 @@
+{
+    "tmsApp": {
+        "scheduledPayement" : {
+            "home": {
+                "title": "Scheduled Payements",
+                "createLabel": "Create a new Scheduled Payement",
+                "createOrEditLabel": "Create or edit a Scheduled Payement",
+                "search": "Search for Scheduled Payement"
+            },
+            "created": "A new Scheduled Payement is created with identifier {{ param }}",
+            "updated": "A Scheduled Payement is updated with identifier {{ param }}",
+            "deleted": "A Scheduled Payement is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Scheduled Payement {{ id }}?"
+            },
+            "detail": {
+                "title": "Scheduled Payement"
+            },
+            "date": "Date",
+            "amount": "Amount",
+            "customer": "Customer"
+        }
+    }
+}

@@ -1,0 +1,70 @@
+<div>
+    <h2 translate="tmsApp.customerProduct.home.title">Customer Products</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="customer-product.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="tmsApp.customerProduct.home.createLabel">
+                        Create new Customer Product
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="price"><span translate="tmsApp.customerProduct.price">Price</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="discount"><span translate="tmsApp.customerProduct.discount">Discount</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="customer.name"><span translate="tmsApp.customerProduct.customer">Customer</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="product.name"><span translate="tmsApp.customerProduct.product">Product</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="customerProduct in vm.customerProducts track by customerProduct.id">
+                    <td><a ui-sref="customer-product-detail({id:customerProduct.id})">{{customerProduct.id}}</a></td>
+                    <td>{{customerProduct.price}}</td>
+                    <td>{{customerProduct.discount}}</td>
+                    <td>
+                        <a ui-sref="customer-detail({id:customerProduct.customer.id})">{{customerProduct.customer.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="product-detail({id:customerProduct.product.id})">{{customerProduct.product.name}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="customer-product-detail({id:customerProduct.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="customer-product.edit({id:customerProduct.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="customer-product.delete({id:customerProduct.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

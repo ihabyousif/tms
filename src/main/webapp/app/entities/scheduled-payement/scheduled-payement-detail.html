@@ -1,0 +1,26 @@
+
+<div>
+    <h2><span translate="tmsApp.scheduledPayement.detail.title">Scheduled Payement</span> {{vm.scheduledPayement.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="tmsApp.scheduledPayement.date">Date</span></dt>
+        <dd>
+            <span>{{vm.scheduledPayement.date | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span translate="tmsApp.scheduledPayement.amount">Amount</span></dt>
+        <dd>
+            <span>{{vm.scheduledPayement.amount}}</span>
+        </dd>
+        <dt><span translate="tmsApp.scheduledPayement.customer">Customer</span></dt>
+        <dd>
+            <a ui-sref="customer-detail({id:vm.scheduledPayement.customer.id})">{{vm.scheduledPayement.customer.name}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

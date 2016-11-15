@@ -1,0 +1,30 @@
+
+<div>
+    <h2><span translate="tmsApp.transaction.detail.title">Transaction</span> {{vm.transaction.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="tmsApp.transaction.date">Date</span></dt>
+        <dd>
+            <span>{{vm.transaction.date | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span translate="tmsApp.transaction.amount">Amount</span></dt>
+        <dd>
+            <span>{{vm.transaction.amount}}</span>
+        </dd>
+        <dt><span translate="tmsApp.transaction.type">Type</span></dt>
+        <dd>
+            <span translate="{{'tmsApp.TrxType.' + vm.transaction.type}}">{{vm.transaction.type}}</span>
+        </dd>
+        <dt><span translate="tmsApp.transaction.customer">Customer</span></dt>
+        <dd>
+            <a ui-sref="customer-detail({id:vm.transaction.customer.id})">{{vm.transaction.customer.name}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>
